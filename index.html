@@ -2,150 +2,377 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sundaresan Subramaniam - Professional Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sundaresan Subramaniam — Professional Portfolio</title>
+
+  <!-- Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; color: #222; line-height: 1.6; }
-    h1, h2, h3 { color: #003366; }
-    section { margin-bottom: 40px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    th, td { padding: 8px 10px; vertical-align: top; }
-    tr:nth-child(even) { background-color: #f8f8f8; }
-    colgroup col { width: auto; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    ul { margin: 10px 0; }
-    li { margin-bottom: 6px; }
-    a { color: #003366; text-decoration: none; }
+    :root{
+      --ink:#1f2937;             /* body text */
+      --muted:#4b5563;           /* secondary text */
+      --brand:#003366;           /* headings / links */
+      --line:#e5e7eb;            /* dividers */
+      --card:#f7f9fc;            /* subtle section background */
+      --chip:#eef2f7;            /* skill/tool chip bg */
+      --chip-text:#0f172a;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Open Sans",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      color:var(--ink);
+      line-height:1.65;
+      background:#fff;
+    }
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      padding:36px 20px 80px;
+    }
+
+    /* Header */
+    header{
+      margin-bottom:28px;
+      padding-bottom:20px;
+      border-bottom:1px solid var(--line);
+    }
+    h1{
+      font-size:34px;
+      line-height:1.15;
+      color:var(--brand);
+      margin:0 0 8px;
+      letter-spacing:.2px;
+      font-weight:700;
+    }
+    .title-line{
+      margin:0;
+      color:var(--muted);
+      font-weight:600;
+      font-size:15.5px;
+    }
+
+    /* Sections */
+    section{margin:32px 0 0}
+    section + section{margin-top:36px}
+    .section-head{
+      display:flex;align-items:center;gap:12px;margin:0 0 14px
+    }
+    .section-head h2{
+      font-size:22px;margin:0;color:var(--brand);letter-spacing:.2px
+    }
+    .divider{height:1px;background:var(--line);margin:10px 0 0}
+
+    /* Cards rhythm: alternate subtle background for readability */
+    .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 18px}
+    .flush{background:transparent;border:none;padding:0}
+
+    /* Paragraphs & lists */
+    p{margin:8px 0}
+    ul{margin:8px 0 0 1.1rem}
+    li{margin:6px 0}
+
+    /* Grid (for Skills if used) */
+    .grid{display:grid;gap:18px}
+    @media (min-width:860px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
+
+    /* Chips for skills & tools */
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .chip{
+      background:var(--chip);
+      color:var(--chip-text);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:13px;
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    /* Experience table */
+    table{width:100%;border-collapse:collapse;margin-top:6px}
+    thead th{
+      text-align:left;
+      font-weight:700;
+      color:var(--brand);
+      border-bottom:1px solid var(--line);
+      padding:10px 8px;
+      font-size:14px;
+    }
+    tbody td{
+      padding:10px 8px;
+      vertical-align:top;
+      border-bottom:1px solid var(--line);
+      font-size:14.5px;
+    }
+    table.fixed{table-layout:fixed}
+    .col-role{width:46%}
+    .col-org{width:34%}
+    .col-dates{width:20%;white-space:nowrap}
+
+    /* Meta list (awards / education) */
+    .meta-list{margin:6px 0 0;padding:0;list-style:none}
+    .meta-list li{margin:8px 0;padding-left:0}
+
+    /* Contact */
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Small helper text */
+    small, .note{color:var(--muted)}
   </style>
 </head>
 <body>
+  <div class="wrap">
 
-  <header>
-    <h1>Sundaresan Subramaniam</h1>
-    <p>Sr. Technical Program Manager | Sr. Project Manager | PMO Analyst | Agile Coach | Scrum Master | Product & Delivery Lead</p>
-  </header>
+    <header>
+      <h1>Sundaresan Subramaniam</h1>
+      <p class="title-line">Sr. Technical Program Manager | Sr. Project Manager | PMO Analyst | Agile Coach | Scrum Master | Product & Delivery Lead</p>
+    </header>
 
-  <section id="summary">
-    <h2>Professional Summary</h2>
-    <p>Technology Program and Delivery Leader with over 20 years of experience driving enterprise-scale programs across financial services, government, and product organizations. 
-    Expertise in Agile transformation, PMO governance, data modernization, and cloud strategy. Skilled in aligning business and engineering teams to deliver measurable value through collaboration, process excellence, and technology innovation.</p>
-  </section>
+    <!-- SUMMARY -->
+    <section id="summary" class="flush">
+      <div class="section-head"><h2>Professional Summary</h2></div>
+      <p>Technology Program and Delivery Leader with 20+ years bridging business objectives with engineering execution across financial services, public sector, and product organizations. Deep experience in Agile transformation, PMO governance, data & cloud modernization, resiliency and risk controls, and regulatory programs (AML/KYC/eAudit). Trusted partner known for servant leadership, cross-functional collaboration, and metrics-driven delivery that consistently improves outcomes and stakeholder confidence.</p>
+    </section>
 
-  <section id="dayinlife">
-    <h2>Day in the Life</h2>
-    <p>Leading daily Agile and program delivery activities across teams in diverse enterprise environments. Responsibilities include:</p>
-    <ul>
-      <li>Facilitating Scrum, Kanban, and hybrid Agile ceremonies and tracking sprint goals through Jira and Confluence.</li>
-      <li>Managing multi-stream program dependencies, risk logs, and issue registers in Clarity PPM and Smartsheet.</li>
-      <li>Driving PMO governance standards and portfolio metrics aligned to EVM, OKR, and KPI targets.</li>
-      <li>Overseeing technology modernization and delivery execution in Cloud (AWS, Azure, Databricks) and Data Engineering projects.</li>
-      <li>Collaborating with cross-functional teams to implement ServiceNow process automation and audit compliance (ITIL, SOX, AML/KYC).</li>
-      <li>Coaching teams on Agile best practices, servant leadership, and continuous improvement principles.</li>
-      <li>Partnering with senior stakeholders to prioritize book-of-work initiatives and ensure transparent reporting.</li>
-    </ul>
-  </section>
+    <!-- DAY IN LIFE -->
+    <section id="day-in-life" class="card">
+      <div class="section-head"><h2>Day in the Life — Core Responsibilities & Practices</h2></div>
+      <ul>
+        <li>Facilitate Scrum/Kanban ceremonies, drive sprint goals, and enable iterative delivery; maintain backlogs, roadmaps, and release plans.</li>
+        <li>Run program increments and dependency mapping (Agile/SAFe); steward PMO standards, controls, cadence, and reporting.</li>
+        <li>Own risks/issues/changes with clear mitigation and escalation; manage EVM, OKRs, KPIs, and delivery scorecards.</li>
+        <li>Coordinate multi-team execution across cloud/data modernization, platform resilience, and automation initiatives (ServiceNow, CI/CD).</li>
+        <li>Partner with business, technology, vendors, and audit/compliance; ensure transparency and alignment across executive stakeholders.</li>
+        <li>Coach teams in servant leadership, collaboration, and continuous improvement; lead retrospectives and action tracking.</li>
+        <li>Plan book-of-work, capacity, and release calendars; support budget views, forecasts, benefits realization, and portfolio hygiene.</li>
+      </ul>
+      <p class="note">Frameworks & Methods: Agile · Scrum · Kanban · SAFe · ITIL · SDLC · PMO Governance · Risk/Compliance · EVM · OKR.</p>
+      <p class="note">Tools in Flow: Jira · Confluence · Clarity PPM · MS Project · Smartsheet · ServiceNow · SharePoint · Miro · Power BI · Tableau.</p>
+    </section>
 
-  <section id="skills">
-    <h2>Skills & Expertise</h2>
-    <div class="grid cols-2">
-      <div>
-        <h3>Leadership & Strategy</h3>
-        <p>Program Governance · Portfolio Management · Stakeholder Alignment · Vendor & Partner Management · Change Leadership · Financial Management · Servant Leadership · Executive Communication</p>
+    <!-- SKILLS -->
+    <section id="skills" class="flush">
+      <div class="section-head"><h2>Skills & Expertise</h2></div>
 
-        <h3>Program & Project Delivery</h3>
-        <p>PMO Governance · Risk & Issue Management · EVM · KPI/OKR Measurement · Schedule and Cost Control · Resource Optimization · Cross-functional Team Coordination</p>
+      <div class="grid cols-2">
+        <div>
+          <h3>Leadership & Strategy</h3>
+          <div class="chips">
+            <span class="chip">Program Governance</span>
+            <span class="chip">Portfolio Management</span>
+            <span class="chip">Stakeholder Alignment</span>
+            <span class="chip">Vendor & Partner Mgmt</span>
+            <span class="chip">Change Leadership</span>
+            <span class="chip">Financial Oversight</span>
+            <span class="chip">Servant Leadership</span>
+            <span class="chip">Executive Communication</span>
+          </div>
+
+          <h3 style="margin-top:16px">Program & Project Delivery</h3>
+          <div class="chips">
+            <span class="chip">PMO Standards & Controls</span>
+            <span class="chip">Risk / Issue / Change</span>
+            <span class="chip">EVM</span>
+            <span class="chip">KPIs & OKRs</span>
+            <span class="chip">Schedule & Cost Control</span>
+            <span class="chip">Dependency Mgmt</span>
+            <span class="chip">Resource Optimization</span>
+            <span class="chip">Audit Readiness</span>
+          </div>
+        </div>
+
+        <div>
+          <h3>Agile & Product Delivery</h3>
+          <div class="chips">
+            <span class="chip">Agile Transformation</span>
+            <span class="chip">Scrum</span>
+            <span class="chip">Kanban</span>
+            <span class="chip">SAFe</span>
+            <span class="chip">Product Ownership</span>
+            <span class="chip">Iterative Delivery</span>
+            <span class="chip">Continuous Improvement</span>
+            <span class="chip">Team Velocity & Metrics</span>
+          </div>
+
+          <h3 style="margin-top:16px">Technology & Cloud</h3>
+          <div class="chips">
+            <span class="chip">AWS</span>
+            <span class="chip">Azure</span>
+            <span class="chip">Databricks</span>
+            <span class="chip">Data Engineering</span>
+            <span class="chip">Automation</span>
+            <span class="chip">CI/CD (Jenkins, GitHub)</span>
+            <span class="chip">ServiceNow Integration</span>
+            <span class="chip">Cloud/App Modernization</span>
+          </div>
+
+          <h3 style="margin-top:16px">Collaboration & Communication</h3>
+          <div class="chips">
+            <span class="chip">Workshop Facilitation</span>
+            <span class="chip">Coaching & Mentoring</span>
+            <span class="chip">Conflict Resolution</span>
+            <span class="chip">Cross-functional Collaboration</span>
+            <span class="chip">Org Change Enablement</span>
+          </div>
+        </div>
       </div>
-      <div>
-        <h3>Agile & Product Delivery</h3>
-        <p>Agile Transformation · Scrum · SAFe · Kanban · Product Ownership · Iterative Development · Continuous Improvement · Team Velocity & Metrics</p>
+    </section>
 
-        <h3>Technology & Cloud</h3>
-        <p>AWS · Azure · Databricks · Data Engineering · Automation · CI/CD (Jenkins, GitHub) · ServiceNow Integration · Cloud Migration · Application Modernization</p>
+    <!-- TOOLS, FRAMEWORKS & METHODOLOGIES (new; content approved) -->
+    <section id="tools" class="card">
+      <div class="section-head"><h2>Tools, Frameworks & Methodologies</h2></div>
 
-        <h3>Collaboration & Communication</h3>
-        <p>Workshop Facilitation · Coaching & Mentoring · Conflict Resolution · Stakeholder Management · Cross-cultural Collaboration · Organizational Change Enablement</p>
+      <h3>Project, Program & Portfolio Tools</h3>
+      <div class="chips">
+        <span class="chip">Jira</span>
+        <span class="chip">Confluence</span>
+        <span class="chip">MS Project</span>
+        <span class="chip">Smartsheet</span>
+        <span class="chip">Clarity PPM</span>
+        <span class="chip">ServiceNow</span>
+        <span class="chip">Miro</span>
+        <span class="chip">Power BI</span>
+        <span class="chip">Tableau</span>
+        <span class="chip">SharePoint</span>
+        <span class="chip">OneNote</span>
       </div>
-    </div>
-  </section>
 
-  <!-- Newly added section -->
-  <section id="tools">
-    <h2>Tools, Frameworks & Methodologies</h2>
-    <div class="grid cols-2">
-      <div>
-        <h3>Project, Program & Portfolio Tools</h3>
-        <p>Jira · Confluence · MS Project · Smartsheet · Clarity PPM · ServiceNow · Miro · Power BI · Tableau · SharePoint · OneNote</p>
-
-        <h3>Frameworks & Methodologies</h3>
-        <p>Agile · Scrum · Kanban · SAFe · Waterfall · Hybrid Delivery · PMO Governance · ITIL · Risk & Compliance · EVM · OKR Alignment · Continuous Improvement</p>
+      <h3 style="margin-top:16px">Frameworks & Methods</h3>
+      <div class="chips">
+        <span class="chip">Agile</span>
+        <span class="chip">Scrum</span>
+        <span class="chip">Kanban</span>
+        <span class="chip">SAFe</span>
+        <span class="chip">Waterfall</span>
+        <span class="chip">Hybrid Delivery</span>
+        <span class="chip">PMO Governance</span>
+        <span class="chip">ITIL</span>
+        <span class="chip">Risk & Compliance</span>
+        <span class="chip">EVM</span>
+        <span class="chip">OKR Alignment</span>
+        <span class="chip">Continuous Improvement</span>
       </div>
-      <div>
-        <h3>Cloud, Data & Integration Platforms</h3>
-        <p>AWS · Azure · Databricks · Snowflake · Spark · Kafka · REST APIs · Webhooks</p>
 
-        <h3>AI, Automation & Emerging Technologies</h3>
-        <p>ChatGPT · LangChain · Zapier · OpenProject API · Prompt Engineering · AI Workflow Integration · Applied Research in Health & Safety Systems</p>
+      <h3 style="margin-top:16px">Cloud, Data & Integration Platforms</h3>
+      <div class="chips">
+        <span class="chip">AWS</span>
+        <span class="chip">Azure</span>
+        <span class="chip">Databricks</span>
+        <span class="chip">Snowflake</span>
+        <span class="chip">Spark</span>
+        <span class="chip">Kafka</span>
+        <span class="chip">REST APIs</span>
+        <span class="chip">Webhooks</span>
       </div>
-    </div>
-  </section>
 
-  <section id="experience">
-    <h2>Experience Summary</h2>
-    <table>
-      <colgroup>
-        <col style="width:45%;">
-        <col style="width:35%;">
-        <col style="width:20%;">
-      </colgroup>
-      <thead>
-        <tr><th>Role</th><th>Organization</th><th>Dates</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Independent Consultant – Agile Lead / Product Owner / Sr. Scrum Master / Sr. Project Manager</td><td>Signom Labs (Freelance)</td><td>Feb 2025 – Present</td></tr>
-        <tr><td>Sr. Technical Program Manager / Agile Coach / Scrum Master / PMO Analyst</td><td>J.P. Morgan Chase</td><td>Jul 2014 – Jan 2025</td></tr>
-        <tr><td>Senior Project Manager</td><td>Insight Global (Consultant at JPMC)</td><td>Jul 2013 – Jul 2014</td></tr>
-        <tr><td>Sr. Consultant – Program Management / Product Owner</td><td>Orion Systems Integrators Inc. (KPMG Advisory)</td><td>Feb 2012 – Dec 2012</td></tr>
-        <tr><td>Program Manager – Capital Markets Technology</td><td>iGATE Global Solutions / RBC Capital Markets</td><td>Jul 2005 – Feb 2012</td></tr>
-        <tr><td>Project Director – Client Engagement, IT Director, Delivery & Project Management</td><td>Ventech Solutions</td><td>Apr 2003 – Apr 2005</td></tr>
-        <tr><td>Software Product Development Manager – Product & Project Management</td><td>D.M.Data Corporation</td><td>Oct 1999 – Mar 2003</td></tr>
-      </tbody>
-    </table>
-  </section>
+      <h3 style="margin-top:16px">AI, Automation & Emerging Technologies</h3>
+      <div class="chips">
+        <span class="chip">ChatGPT</span>
+        <span class="chip">LangChain</span>
+        <span class="chip">Zapier</span>
+        <span class="chip">OpenProject API</span>
+        <span class="chip">Prompt Engineering</span>
+        <span class="chip">AI Workflow Integration</span>
+        <span class="chip">Applied Research: Health & Safety Systems</span>
+      </div>
+    </section>
 
-  <!-- New Awards Section -->
-  <section id="awards">
-    <h2>Awards & Recognition</h2>
-    <ul>
-      <li><strong>CEO Gold Award for Delivery Excellence</strong> – RBC Capital Markets (iGATE Engagement)</li>
-      <li>Recognized for leadership in delivery execution, client engagement, and Agile transformation.</li>
-      <li>Commended for fostering cross-functional collaboration and improving delivery quality metrics.</li>
-    </ul>
-  </section>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="flush">
+      <div class="section-head"><h2>Experience Summary</h2></div>
+      <table class="fixed">
+        <colgroup>
+          <col class="col-role" />
+          <col class="col-org" />
+          <col class="col-dates" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Organization</th>
+            <th>Dates</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Independent Consultant – Agile Lead / Product Owner / Sr. Scrum Master / Sr. Project Manager</td>
+            <td>Signom Labs (Freelance)</td>
+            <td>Feb 2025 – Present</td>
+          </tr>
+          <tr>
+            <td>Sr. Technical Program Manager / Agile Coach / Scrum Master / PMO Analyst</td>
+            <td>J.P. Morgan Chase</td>
+            <td>Jul 2014 – Jan 2025</td>
+          </tr>
+          <tr>
+            <td>Senior Project Manager</td>
+            <td>Insight Global (Consultant at JPMC)</td>
+            <td>Jul 2013 – Jul 2014</td>
+          </tr>
+          <tr>
+            <td>Sr. Consultant – Program Management / Product Owner</td>
+            <td>Orion Systems Integrators Inc. (KPMG Advisory)</td>
+            <td>Feb 2012 – Dec 2012</td>
+          </tr>
+          <tr>
+            <td>Program Manager — Capital Markets Technology</td>
+            <td>iGATE Global Solutions / RBC Capital Markets</td>
+            <td>Jul 2005 – Feb 2012</td>
+          </tr>
+          <tr>
+            <td>Project Director — Client Engagement, IT Director, Delivery & Project Management</td>
+            <td>Ventech Solutions</td>
+            <td>Apr 2003 – Apr 2005</td>
+          </tr>
+          <tr>
+            <td>Software Product Development Manager — Product & Project Management</td>
+            <td>D.M.Data Corporation</td>
+            <td>Oct 1999 – Mar 2003</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-  <section id="education">
-    <h2>Education & Certifications</h2>
-    <ul>
-      <li>Executive MBA – Quantic School of Business & Technology (Pursuing)</li>
-      <li>Postgraduate Program – Cloud Computing & Generative AI, University of Texas (Pursuing)</li>
-      <li>Certified ScrumMaster (CSM)</li>
-      <li>Project Management Professional (PMP-aligned)</li>
-      <li>Six Sigma Green Belt</li>
-      <li>Bachelor of Engineering – Bangalore University</li>
-    </ul>
-  </section>
+    <!-- AWARDS (new) -->
+    <section id="awards" class="card">
+      <div class="section-head"><h2>Awards & Recognition</h2></div>
+      <ul class="meta-list">
+        <li><strong>CEO Gold Award for Delivery Excellence</strong> — RBC Capital Markets (iGATE engagement).</li>
+        <li>Recognized for leadership in delivery execution, client engagement, and Agile/PMO transformation.</li>
+        <li>Commended for cross-functional collaboration and improved delivery quality metrics.</li>
+      </ul>
+    </section>
 
-  <section id="leadership">
-    <h2>Leadership Philosophy</h2>
-    <p><strong>People · Process · Partnership · Performance</strong></p>
-    <p>I believe leadership is about enabling others to achieve measurable outcomes by aligning technology, business, and culture. My approach emphasizes servant leadership, collaboration, accountability, and continuous improvement to build trust and deliver results.</p>
-  </section>
+    <!-- EDUCATION -->
+    <section id="education" class="flush">
+      <div class="section-head"><h2>Education & Certifications</h2></div>
+      <ul class="meta-list">
+        <li>Executive MBA — Quantic School of Business & Technology <span class="note">(Pursuing)</span></li>
+        <li>Postgraduate Program — Cloud Computing & Generative AI, University of Texas <span class="note">(Pursuing)</span></li>
+        <li>Certified ScrumMaster (CSM)</li>
+        <li>Project Management Professional (PMP-aligned)</li>
+        <li>Six Sigma Green Belt</li>
+        <li>Bachelor of Engineering — Bangalore University</li>
+      </ul>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: sunny.subramaniam@email.com</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/ssundaresan" target="_blank">linkedin.com/in/ssundaresan</a></p>
-    <p>Portfolio: <a href="https://sunny.portfolio.cloudbanyan.com" target="_blank">sunny.portfolio.cloudbanyan.com</a></p>
-  </section>
+    <!-- LEADERSHIP -->
+    <section id="leadership" class="card">
+      <div class="section-head"><h2>Leadership Philosophy</h2></div>
+      <p><strong>People · Process · Partnership · Performance</strong></p>
+      <p>I believe leadership is about enabling others to achieve measurable outcomes by aligning technology, business, and culture. My approach emphasizes servant leadership, collaboration, accountability, and continuous improvement to build trust and deliver results.</p>
+    </section>
 
+    <!-- CONTACT -->
+    <section id="contact" class="flush">
+      <div class="section-head"><h2>Contact</h2></div>
+      <p>Email: <a href="mailto:sunny.subramaniam@email.com">sunny.subramaniam@email.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/ssundaresan" target="_blank" rel="noopener">linkedin.com/in/ssundaresan</a></p>
+      <p>Portfolio: <a href="https://sunny.portfolio.cloudbanyan.com" target="_blank" rel="noopener">sunny.portfolio.cloudbanyan.com</a></p>
+    </section>
+
+  </div>
 </body>
 </html>
