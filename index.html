@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sundaresan Subramaniam — Professional Portfolio</title>
 
-  <!-- Typography -->
+  <!-- Typography (professional, readable) -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <style>
     :root{
       --ink:#1f2937;             /* body text */
@@ -56,7 +57,7 @@
     section{margin:32px 0 0}
     section + section{margin-top:36px}
     .section-head{
-      display:flex;align-items:center;gap:12px;margin:0 0 14px
+      display:flex;align-items:center;gap:10px;margin:0 0 12px
     }
     .section-head h2{
       font-size:22px;margin:0;color:var(--brand);letter-spacing:.2px
@@ -64,7 +65,7 @@
     .divider{height:1px;background:var(--line);margin:10px 0 0}
 
     /* Cards rhythm: alternate subtle background for readability */
-    .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
     .flush{background:transparent;border:none;padding:0}
 
     /* Paragraphs & lists */
@@ -105,26 +106,39 @@
       border-bottom:1px solid var(--line);
       font-size:14.5px;
     }
-    table.fixed{table-layout:fixed}
+    table.fixed{table-layout:fixed}          /* ✅ consistent columns */
     .col-role{width:46%}
     .col-org{width:34%}
-    .col-dates{width:20%;white-space:nowrap}
+    .col-dates{width:20%;white-space:nowrap;text-align:right;overflow:hidden;text-overflow:ellipsis} /* ✅ no wrap */
 
     /* Meta list (awards / education) */
     .meta-list{margin:6px 0 0;padding:0;list-style:none}
     .meta-list li{margin:8px 0;padding-left:0}
 
-    /* Contact */
+    /* Links & icons */
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
+    .connect-list{list-style:none;margin:8px 0 0;padding:0}
+    .connect-item{display:flex;align-items:center;gap:10px;margin:10px 0}
+    .icon{width:18px;height:18px;display:inline-block}
 
-    /* Small helper text */
-    small, .note{color:var(--muted)}
+    /* Leadership icon grid */
+    .icon-grid{display:grid;gap:16px}
+    @media (min-width:860px){ .icon-grid{grid-template-columns:repeat(5,1fr)} }
+    .icon-item{text-align:center;padding:12px 8px}
+    .icon-emoji{font-size:22px;display:inline-block;margin-bottom:6px}
+
+    /* Footer */
+    footer#copyright{
+      margin-top:24px;padding-top:12px;border-top:1px solid var(--line);
+      color:#6b7280;text-align:center;font-size:12px
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
 
+    <!-- HEADER -->
     <header>
       <h1>Sundaresan Subramaniam</h1>
       <p class="title-line">Sr. Technical Program Manager | Sr. Project Manager | PMO Analyst | Agile Coach | Scrum Master | Product & Delivery Lead</p>
@@ -220,7 +234,7 @@
       </div>
     </section>
 
-    <!-- TOOLS, FRAMEWORKS & METHODOLOGIES (new; content approved) -->
+    <!-- TOOLS, FRAMEWORKS & METHODOLOGIES (added after Skills) -->
     <section id="tools" class="card">
       <div class="section-head"><h2>Tools, Frameworks & Methodologies</h2></div>
 
@@ -281,7 +295,7 @@
 
     <!-- EXPERIENCE -->
     <section id="experience" class="flush">
-      <div class="section-head"><h2>Experience Summary</h2></div>
+      <div class="section-head"><h2>Professional Experience</h2></div>
       <table class="fixed">
         <colgroup>
           <col class="col-role" />
@@ -335,7 +349,7 @@
       </table>
     </section>
 
-    <!-- AWARDS (new) -->
+    <!-- AWARDS (immediately after Experience) -->
     <section id="awards" class="card">
       <div class="section-head"><h2>Awards & Recognition</h2></div>
       <ul class="meta-list">
@@ -358,20 +372,71 @@
       </ul>
     </section>
 
-    <!-- LEADERSHIP -->
+    <!-- LEADERSHIP PHILOSOPHY & PASSIONS (with icons retained) -->
     <section id="leadership" class="card">
-      <div class="section-head"><h2>Leadership Philosophy</h2></div>
-      <p><strong>People · Process · Partnership · Performance</strong></p>
-      <p>I believe leadership is about enabling others to achieve measurable outcomes by aligning technology, business, and culture. My approach emphasizes servant leadership, collaboration, accountability, and continuous improvement to build trust and deliver results.</p>
+      <div class="section-head"><h2>Leadership Philosophy & Passions</h2></div>
+      <div class="icon-grid">
+        <div class="icon-item">
+          <span class="icon-emoji">👤</span>
+          <h3>People-First Leadership</h3>
+          <p>Servant leadership focused on empowering teams, mentoring talent, and building trust through transparency, empathy, and accountability.</p>
+        </div>
+        <div class="icon-item">
+          <span class="icon-emoji">⚙️</span>
+          <h3>Process Excellence</h3>
+          <p>Structured yet adaptive ways of working, blending Agile, ITIL, and PMO governance to sustain performance and continuous improvement.</p>
+        </div>
+        <div class="icon-item">
+          <span class="icon-emoji">📊</span>
+          <h3>Metrics-Driven Delivery</h3>
+          <p>Outcome-focused delivery guided by KPIs, EVM, and OKRs; data-driven decisions with proactive risk/issue management.</p>
+        </div>
+        <div class="icon-item">
+          <span class="icon-emoji">🤝</span>
+          <h3>Trusted Partnership</h3>
+          <p>Cross-functional collaboration with business, technology, and vendors to co-create solutions that deliver measurable impact.</p>
+        </div>
+        <div class="icon-item">
+          <span class="icon-emoji">💡</span>
+          <h3>Technology & Innovation</h3>
+          <p>Passion for Cloud, Data, AI, and Automation to reduce complexity, improve resilience, and accelerate time-to-value responsibly.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="flush">
-      <div class="section-head"><h2>Contact</h2></div>
-      <p>Email: <a href="mailto:sunny.subramaniam@email.com">sunny.subramaniam@email.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/ssundaresan" target="_blank" rel="noopener">linkedin.com/in/ssundaresan</a></p>
-      <p>Portfolio: <a href="https://sunny.portfolio.cloudbanyan.com" target="_blank" rel="noopener">sunny.portfolio.cloudbanyan.com</a></p>
+    <!-- CONNECT (with small icons and links) -->
+    <section id="connect" class="flush">
+      <div class="section-head"><h2>Connect</h2></div>
+      <ul class="connect-list">
+        <li class="connect-item">
+          <!-- Mail icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Z" stroke="#003366" stroke-width="1.5"/>
+            <path d="M4 7l8 6 8-6" stroke="#003366" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <a href="mailto:sunny.subramaniam@email.com">sunny.subramaniam@email.com</a>
+        </li>
+        <li class="connect-item">
+          <!-- LinkedIn icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4.983 3.5A1.75 1.75 0 1 1 3.5 5.983 1.75 1.75 0 0 1 4.983 3.5Z" stroke="#003366" stroke-width="1.5"/>
+            <path d="M4.25 9.25h3v11h-3v-11ZM10 9.25h2.75v1.65h.04c.38-.72 1.31-1.48 2.7-1.48 2.88 0 3.41 1.9 3.41 4.36v6.47h-3v-5.74c0-1.37-.03-3.14-1.91-3.14-1.91 0-2.2 1.49-2.2 3.03v5.85H10v-11Z" stroke="#003366" stroke-width="1.2"/>
+          </svg>
+          <a href="https://linkedin.com/in/ssundaresan" target="_blank" rel="noopener">linkedin.com/in/ssundaresan</a>
+        </li>
+        <li class="connect-item">
+          <!-- Link icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8.5 12a3.5 3.5 0 0 1 0-5l2-2a3.5 3.5 0 0 1 5 5l-.8.8" stroke="#003366" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M15.5 12a3.5 3.5 0 0 1 0 5l-2 2a3.5 3.5 0 0 1-5-5l.8-.8" stroke="#003366" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <a href="https://sunny.portfolio.cloudbanyan.com" target="_blank" rel="noopener">sunny.portfolio.cloudbanyan.com</a>
+        </li>
+      </ul>
     </section>
+
+    <!-- COPYRIGHT -->
+    <footer id="copyright">© 2025 Sundaresan Subramaniam. All Rights Reserved.</footer>
 
   </div>
 </body>
